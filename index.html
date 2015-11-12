@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+
+	<style>
+		body,div,main,img{
+			margin: 0;
+			padding: 0;
+		}
+
+		body{
+			width: 100%;
+			text-align: center;
+		}
+
+		main{
+		}
+
+		#cover{
+			width: 70%;
+			max-width: 800px;
+			margin: 5% auto;
+			position: relative;
+		}
+
+		#image{
+			width: 100%;
+			position: relative;
+		}
+
+		#image img{
+			width: inherit;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+
+		#slider{
+			width: 70%;
+			max-width: 800px;
+			margin: 0 auto;
+		}
+
+		input[type=range]{
+			width: 100%;
+		}
+	</style>
+</head>
+<body>
+	<main>
+		<div id="cover">
+			<div id="image">
+				<img src="3.png" id="cover3" alt="TypeCover3">
+				<img src="4.png" id="cover4" alt="TypeCover4">
+			</div>
+		</div>
+		<div id="slider">
+			<img src="label.png" alt="label" width="100%">
+			<input id="range" type="range" value="1" min="0" max="1" step="0.1">
+		</div>
+	</main>
+
+	<script>
+		var img    = document.getElementById("image")
+		var cover4 = document.getElementById("cover4")
+		var range = document.getElementById("range")
+
+		function setImageHegiht(){
+			img.style.height = cover4.height + "px"
+		}
+
+		window.onload = function(){setImageHegiht()}
+		window.onresize = function(){setImageHegiht()}
+
+		range.addEventListener("input",function(){
+			cover4.style.opacity = this.value
+		})
+
+		range.addEventListener("change",function(){
+			cover4.style.opacity = this.value
+		})
+	</script>
+</body>
+</html>
